@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kebijakan Privasi – DompetKu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00C896;
+      --green-light: #E6FAF5;
+      --green-mid: #00a87e;
+      --bg: #F7F9F8;
+      --card: #ffffff;
+      --text: #1A2B25;
+      --muted: #6B8078;
+      --border: #DDE8E4;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #00C896 0%, #00916E 100%);
+      padding: 48px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      top: -80px; right: -80px;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      bottom: -60px; left: -40px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+
+    header h1 {
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 720px;
+      margin: -24px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 28px 28px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 20px rgba(0,200,150,0.08); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .card p, .card li {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card ul li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .card ul li::before {
+      content: '•';
+      color: var(--green);
+      font-size: 18px;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--green-light);
+      border: 1px solid rgba(0,200,150,0.2);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--green-mid);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">💰</div>
+    <span class="logo-name">DompetKu</span>
+  </div>
+  <h1>Kebijakan Privasi</h1>
+  <p>Terakhir diperbarui: 13 Mei 2026</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📋</div>
+      <h2>1. Informasi yang Kami Kumpulkan</h2>
+    </div>
+    <ul>
+      <li>Nama dan email — untuk identifikasi akun.</li>
+      <li>Data transaksi keuangan — jumlah, kategori, catatan, dompet, tanggal.</li>
+      <li>Token FCM — untuk mengirim notifikasi push.</li>
+      <li>Rekaman suara — hanya saat fitur input suara aktif, diproses langsung tanpa disimpan permanen.</li>
+      <li>Foto struk — hanya saat fitur scan struk aktif.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">⚙️</div>
+      <h2>2. Cara Kami Menggunakan Informasi</h2>
+    </div>
+    <ul>
+      <li>Menyediakan fitur pencatatan dan analisis keuangan.</li>
+      <li>Memberikan notifikasi pengingat tagihan dan laporan mingguan.</li>
+      <li>Memproses input suara/teks ke AI untuk konversi otomatis menjadi transaksi.</li>
+      <li>Meningkatkan akurasi analisis dan rekomendasi keuangan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📱</div>
+      <h2>3. Izin Perangkat</h2>
+    </div>
+    <ul>
+      <li>Mikrofon — untuk fitur input suara. Rekaman hanya diproses saat pengguna menekan tombol rekam.</li>
+      <li>Kamera — untuk fitur scan struk. Foto hanya diambil saat pengguna memilih mode scan.</li>
+      <li>Notifikasi — untuk pengingat tagihan dan laporan keuangan.</li>
+      <li>Penyimpanan — untuk menyimpan laporan PDF.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔒</div>
+      <h2>4. Penyimpanan dan Keamanan</h2>
+    </div>
+    <ul>
+      <li>Data disimpan di server dengan enkripsi (HTTPS).</li>
+      <li>Password di-hash menggunakan bcrypt.</li>
+      <li>Token akses menggunakan JWT dengan masa berlaku terbatas.</li>
+      <li>Kami tidak menjual, menyewakan, atau membagikan data pengguna ke pihak ketiga.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🤖</div>
+      <h2>5. AI dan OpenAI</h2>
+    </div>
+    <p>Fitur AI (parse teks, chat keuangan, scan struk) menggunakan OpenAI API. Teks dan data transaksi yang dikirim ke OpenAI diproses sesuai kebijakan privasi OpenAI. Kami tidak mengirim data identitas pribadi (nama, email) ke OpenAI.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">✅</div>
+      <h2>6. Hak Pengguna</h2>
+    </div>
+    <ul>
+      <li>Mengakses data yang kami simpan.</li>
+      <li>Meminta penghapusan akun dan seluruh data terkait.</li>
+      <li>Menonaktifkan notifikasi kapan saja melalui Pengaturan.</li>
+    </ul>
+    <div class="contact-box">
+      📧 support@dompetku.app
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔔</div>
+      <h2>7. Perubahan Kebijakan</h2>
+    </div>
+    <p>Kami dapat memperbarui kebijakan ini sewaktu-waktu. Perubahan signifikan akan diberitahukan melalui notifikasi dalam aplikasi.</p>
+  </div>
+
+  <footer>
+    &copy; 2026 DompetKu. Semua hak dilindungi.
+  </footer>
+
+</div>
+</body>
+</html>

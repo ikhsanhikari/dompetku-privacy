@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hapus Akun – DompetKu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #FF4D4D;
+      --red-light: #FFF0F0;
+      --red-mid: #cc3333;
+      --green: #00C896;
+      --green-light: #E6FAF5;
+      --bg: #F7F9F8;
+      --card: #ffffff;
+      --text: #1A2B25;
+      --muted: #6B8078;
+      --border: #DDE8E4;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #00C896 0%, #00916E 100%);
+      padding: 48px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 50%;
+      top: -80px; right: -80px;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      bottom: -60px; left: -40px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    header h1 {
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: -24px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Warning banner */
+    .warning-banner {
+      background: #FFF5F5;
+      border: 1.5px solid #FFCCCC;
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .warning-icon { font-size: 28px; flex-shrink: 0; }
+    .warning-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .warning-text {
+      font-size: 13.5px;
+      color: #994444;
+      line-height: 1.7;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 26px 26px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .icon-red { background: var(--red-light); }
+    .icon-green { background: var(--green-light); }
+
+    .card h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card ul li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .card ul li .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .dot-red { background: var(--red); }
+    .dot-green { background: var(--green); }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 14px; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .step-content {
+      padding-top: 4px;
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .step-path {
+      display: inline-block;
+      margin-top: 6px;
+      background: #F0F4F2;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2D5A4A;
+      font-family: monospace;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--green-light);
+      border: 1px solid rgba(0,200,150,0.2);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid rgba(0,200,150,0.3);
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #00916E;
+      text-decoration: none;
+    }
+    .contact-email:hover { background: #f0fdf8; }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">💰</div>
+    <span class="logo-name">DompetKu</span>
+  </div>
+  <h1>Hapus Akun</h1>
+  <p>Panduan penghapusan akun & data pengguna</p>
+</header>
+
+<div class="container">
+
+  <!-- Warning -->
+  <div class="warning-banner">
+    <div class="warning-icon">⚠️</div>
+    <div>
+      <div class="warning-title">Tindakan Tidak Dapat Dibatalkan</div>
+      <div class="warning-text">
+        Setelah akun dihapus, semua data kamu akan dihapus permanen dari server kami dan tidak dapat dipulihkan kembali.
+      </div>
+    </div>
+  </div>
+
+  <!-- Data yang dihapus -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-red">🗑️</div>
+      <h2>Data yang Akan Dihapus</h2>
+    </div>
+    <ul>
+      <li><span class="dot dot-red"></span>Akun dan informasi profil (nama, email)</li>
+      <li><span class="dot dot-red"></span>Seluruh data transaksi keuangan</li>
+      <li><span class="dot dot-red"></span>Kategori dan dompet yang dibuat</li>
+      <li><span class="dot dot-red"></span>Riwayat laporan dan anggaran</li>
+      <li><span class="dot dot-red"></span>Token notifikasi dan preferensi aplikasi</li>
+      <li><span class="dot dot-red"></span>Foto struk yang tersimpan di server</li>
+    </ul>
+  </div>
+
+  <!-- Data yang dipertahankan -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-green">📁</div>
+      <h2>Data yang Tidak Dihapus</h2>
+    </div>
+    <ul>
+      <li><span class="dot dot-green"></span>File laporan PDF yang sudah diunduh ke perangkatmu</li>
+      <li><span class="dot dot-green"></span>Data anonim yang sudah diproses untuk peningkatan layanan (tidak mengandung identitas)</li>
+    </ul>
+  </div>
+
+  <!-- Cara hapus akun -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-green">📱</div>
+      <h2>Cara Hapus Akun di Aplikasi</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Buka Aplikasi DompetKu</div>
+          <div class="step-desc">Pastikan kamu sudah login ke akun yang ingin dihapus.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Masuk ke Pengaturan</div>
+          <div class="step-desc">Tap ikon profil atau menu di pojok kanan atas.</div>
+          <span class="step-path">Profil → Pengaturan</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Pilih "Hapus Akun"</div>
+          <div class="step-desc">Scroll ke bawah dan temukan opsi Hapus Akun di bagian Zona Berbahaya.</div>
+          <span class="step-path">Pengaturan → Hapus Akun</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Konfirmasi Penghapusan</div>
+          <div class="step-desc">Masukkan password kamu untuk konfirmasi, lalu tap "Hapus Akun Saya".</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">Selesai</div>
+          <div class="step-desc">Akun dan seluruh data kamu akan dihapus dalam waktu maksimal 30 hari.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hubungi kami -->
+  <div class="contact-card">
+    <p>Butuh bantuan atau ingin mengajukan penghapusan akun lewat email?<br/>Hubungi tim kami dan kami akan memproses dalam 7 hari kerja.</p>
+    <a class="contact-email" href="mailto:support@dompetku.app">
+      📧 support@dompetku.app
+    </a>
+  </div>
+
+  <footer>
+    &copy; 2026 DompetKu. Semua hak dilindungi. &nbsp;·&nbsp;
+    <a href="index.html" style="color: var(--green); text-decoration: none;">Kebijakan Privasi</a>
+  </footer>
+
+</div>
+</body>
+</html>
